@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "jsx": true
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "prettier"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off", // If you're using TypeScript, no need for PropTypes
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "@typescript-eslint/no-explicit-any": "off", // Allows usage of 'any', you can change it to 'warn' or 'error' if you want to control it more
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Adjust if you prefer functions with explicit return types
+    "@typescript-eslint/no-non-null-assertion": "warn", // Warns when non-null assertion is used
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn", // For checking dependencies in useEffect
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "semi": true,
+        "tabWidth": 2
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "warn", // You can set this to "error" if you want stricter control over 'any' usage
+        "@typescript-eslint/explicit-module-boundary-types": "warn" // Adjust based on your preference for explicit function types
+      }
+    }
+  ]
+}
